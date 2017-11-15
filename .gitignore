@@ -10,6 +10,7 @@ tomcat
 
 # Binaries
 *.class
+*.pdf
 
 # Maven 
 target/
