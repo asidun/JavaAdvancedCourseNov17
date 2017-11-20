@@ -18,12 +18,17 @@ public class MarriedBouquet implements Bouquet<GeneralFlower> {
 
 	@Override
 	public float getPrice() {
-		//TODO
+		if (flowerList.isEmpty()) return 0;
+		float result = assemblePrice;
+		for (GeneralFlower generalFlower : flowerList) {
+			result += generalFlower.getPrice();
+		}
+		return result;
 	}
 
 	@Override
 	public void addFlower(GeneralFlower flower) {
-			//TODO
+			flowerList.add(flower);
 	}
 
 	@Override
