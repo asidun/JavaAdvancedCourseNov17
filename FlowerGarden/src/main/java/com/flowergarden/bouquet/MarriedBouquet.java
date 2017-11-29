@@ -51,21 +51,4 @@ public class MarriedBouquet implements Bouquet<GeneralFlower> {
 	public void setAssembledPrice(float price) {
 		assemblePrice = price;
 	}
-	
-	public MarriedBouquet assembleFromFolder(String folderPath){
-		return null;
-		
-	}
-	
-	public void saveToFolder(String folderPath){
-		
-		String[] folders = folderPath.split(File.pathSeparator);
-		for (int i = 0; i < folders.length; i++) {
-			new File(folders[i]);
-			//check and create
-		}
-		for (GeneralFlower flower : flowerList) {
-			//check and save to file
-		}
-	}
 }

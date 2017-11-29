@@ -5,6 +5,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 public class FreshnessInteger implements Freshness<Integer>, Comparable<FreshnessInteger> {
 
+	@XmlElement
 	private Integer freshness;
 	
 	@Override

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<rose>
+	<price>13.3</price>
+	<lenght>12</lenght>
+	<freshness>
+		<freshness>1</freshness>
+	</freshness>
+	<spike>true</spike>
+</rose>
