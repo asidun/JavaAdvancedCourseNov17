@@ -1,13 +1,14 @@
 package com.flowergarden.run;
 
 
+
+import java.io.File;
+
 import com.flowergarden.bouquet.MarriedBouquetPersistence;
 import com.flowergarden.flowers.Chamomile;
 import com.flowergarden.flowers.GeneralFlower;
 import com.flowergarden.flowers.Rose;
 import com.flowergarden.properties.FreshnessInteger;
-
-import java.io.File;
 
 public class RunBouquetFolderNew {
 
@@ -16,7 +17,7 @@ public class RunBouquetFolderNew {
         MarriedBouquetPersistence firstBouquet = new MarriedBouquetPersistence();
 
         for (int i = 0; i < 5; i++) {
-            firstBouquet.addFlower(new Rose(
+            firstBouquet.addFlower(new Rose());
         }
 
         for (int i = 0; i < 2; i++) {
