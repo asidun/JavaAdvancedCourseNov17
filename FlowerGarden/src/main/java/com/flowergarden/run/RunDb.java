@@ -12,9 +12,10 @@ import java.sql.Statement;
 
 import com.flowergarden.bouquet.MarriedBouquet;
 import com.flowergarden.db.BouquetDAO;
+import com.flowergarden.exception.BouquetException;
 
 public class RunDb {
-	public static void main(String[] args) throws SQLException, IOException  {
+	public static void main(String[] args) throws SQLException, IOException, BouquetException  {
 		int bouquetId = 1;
 		RunDb runDb = new RunDb();
 		
@@ -54,7 +55,7 @@ public class RunDb {
 		
 	}
 
-	MarriedBouquet getMarriedBouquet(int bouquetId, Connection conn) {
+	MarriedBouquet getMarriedBouquet(int bouquetId, Connection conn) throws BouquetException {
 		BouquetDAO bouquetDAO = new BouquetDAO(conn);
 		MarriedBouquet marriedBouquet = bouquetDAO.getMarriedBouquet(bouquetId);
 		return marriedBouquet;
