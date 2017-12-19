@@ -15,6 +15,8 @@ import org.mockito.junit.MockitoJUnitRunner;
 
 import com.flowergarden.bouquet.MarriedBouquet;
 import com.flowergarden.exception.BouquetException;
+import com.flowergarden.exception.FlowerException;
+import com.flowergarden.exception.FlowerNotFoundException;
 import com.flowergarden.flowers.GeneralFlower;
 import com.flowergarden.properties.FreshnessInteger;
 
@@ -31,13 +33,8 @@ public class MarriedBouquetDAOTests {
 	FlowerDAO mockedFlowerDAO;
 	
 	@Test
-	public void getMarriedBouquetTest() throws SQLException{
+	public void getMarriedBouquetTest() throws SQLException, FlowerNotFoundException, FlowerException{
 		//Given
-//		when(mockedResultSet.getString("name")).thenReturn("rose");
-//		when(mockedResultSet.getInt("lenght")).thenReturn(10);
-//		when(mockedResultSet.getInt("freshness")).thenReturn(1);
-//		when(mockedResultSet.getFloat("price")).thenReturn(12.2f);
-//		when(mockedResultSet.getBoolean("spike")).thenReturn(true);
 		when(mockedResultSet.getInt("id")).thenReturn(1);
 		when(mockedResultSet.next()).thenReturn(true).thenReturn(false);
 		

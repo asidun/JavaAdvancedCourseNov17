@@ -8,6 +8,8 @@ import java.util.List;
 
 import com.flowergarden.bouquet.MarriedBouquet;
 import com.flowergarden.exception.BouquetException;
+import com.flowergarden.exception.FlowerException;
+import com.flowergarden.exception.FlowerNotFoundException;
 import com.flowergarden.flowers.GeneralFlower;
 
 public class BouquetDAO {
@@ -23,7 +25,8 @@ public class BouquetDAO {
 		flowerDAO = fDAO;
 	}
 
-	public MarriedBouquet getMarriedBouquet(int bouquetId) throws BouquetException {
+	public MarriedBouquet getMarriedBouquet(int bouquetId) throws BouquetException, 
+	FlowerNotFoundException, FlowerException {
 		MarriedBouquet marrideBouqet = new MarriedBouquet();
 		int flowerId;
 		
@@ -43,7 +46,7 @@ public class BouquetDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 			throw new BouquetException("DB connection error.");
-		}
+		} 
 		return marrideBouqet;
 	}
 
