@@ -31,7 +31,7 @@ public class FlowerRestService {
 	@Path("/chamomile")
 	@Produces(MediaType.APPLICATION_XML)
 	public Chamomile getChamomile() {
-		//TODO
+		Chamomile chamomile = new Chamomile(5, 10, 22, new FreshnessInteger(1));
 		return chamomile;
 	}
 	
