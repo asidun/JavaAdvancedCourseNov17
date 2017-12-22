@@ -20,6 +20,14 @@ public class Rose extends GeneralFlower {
 		
 	}
 	
+	public static Rose getInstanceSample(){
+		return getInstanceWithFreshness(1);
+	}
+	
+	public static Rose getInstanceWithFreshness(int freshness){
+		return new Rose(true, 10, 22, new FreshnessInteger(freshness));
+	}
+	
 	public boolean getSpike(){
 		return spike;
 	}
