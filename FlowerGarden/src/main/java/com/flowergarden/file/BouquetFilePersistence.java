@@ -3,6 +3,7 @@ package com.flowergarden.file;
 import java.io.*;
 import java.util.*;
 
+import com.flowergarden.bouquet.Bouquet;
 import com.flowergarden.bouquet.MarriedBouquet;
 import com.flowergarden.exception.FlowerNotFoundException;
 import com.flowergarden.flowers.Chamomile;
@@ -10,7 +11,7 @@ import com.flowergarden.flowers.GeneralFlower;
 import com.flowergarden.flowers.Rose;
 import com.flowergarden.properties.FreshnessInteger;
 
-public class MarriedBouquetFilePersistence {
+public class BouquetFilePersistence {
 
 	// load flower from file
 	private GeneralFlower loadFlowerFromFile(String folderPath) throws FlowerNotFoundException {
@@ -51,8 +52,9 @@ public class MarriedBouquetFilePersistence {
 		}
 	}
 
-	public MarriedBouquet assembleFromFolder(String folderPath) {
-		MarriedBouquet marriedBouquet = new MarriedBouquet();
+	public Bouquet<GeneralFlower> assembleFromFolder(String folderPath, Class bouquetClass) 
+			throws InstantiationException, IllegalAccessException {
+		Bouquet<GeneralFlower> bouquet = (Bouquet<GeneralFlower>) bouquetClass.newInstance();
 		String directoryName = folderPath.replace(":", "/");
 		File directory = new File(directoryName);
 		// get all files from a directory
@@ -63,14 +65,14 @@ public class MarriedBouquetFilePersistence {
 				// System.out.println(file.getAbsolutePath());
 				try {
 					// load flower from file
-					marriedBouquet.addFlower(loadFlowerFromFile(file.getAbsolutePath()));
+					bouquet.addFlower(loadFlowerFromFile(file.getAbsolutePath()));
 				} catch (FlowerNotFoundException ex) {
 					ex.printStackTrace();
 					// ex.myOwnExceptionMsg();
 				}
 			}
 		}
-		return marriedBouquet;
+		return bouquet;
 	}
 
 	// save flower from file
@@ -114,7 +116,7 @@ public class MarriedBouquetFilePersistence {
 		}
 	}
 
-	public void saveToFolder(String folderPath, MarriedBouquet bouquet) {
+	public void saveToFolder(String folderPath, Bouquet<GeneralFlower> bouquet) {
 		String t = "";
 		String[] folders = folderPath.split(File.pathSeparator);
 		for (int i = 0; i < 2; i++) {
