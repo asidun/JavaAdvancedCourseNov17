@@ -6,4 +6,5 @@ public interface Flower<T> {
 	Freshness<T> getFreshness();
 	float getPrice();
 	int getLenght();
+	Flower<T> createFlower();
 }

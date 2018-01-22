@@ -6,7 +6,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import com.flowergarden.properties.FreshnessInteger;
 
 
-public class GeneralFlower implements Flower<Integer>, Comparable<GeneralFlower> {
+public abstract class GeneralFlower implements Flower<Integer>, Comparable<GeneralFlower> {
 	
 	
 	private FreshnessInteger freshness;
@@ -49,5 +49,8 @@ public class GeneralFlower implements Flower<Integer>, Comparable<GeneralFlower>
 		int compareFresh = compareFlower.getFreshness().getFreshness();		
 		return this.getFreshness().getFreshness() - compareFresh;
 	}
+
+	@Override
+	abstract public Flower<Integer> createFlower();
 
 }

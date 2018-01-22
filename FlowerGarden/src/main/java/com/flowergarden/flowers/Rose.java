@@ -32,6 +32,11 @@ public class Rose extends GeneralFlower {
 		return spike;
 	}
 	
+	@Override
+	public Rose createFlower() {
+		return new Rose(true, 10, 22, new FreshnessInteger(1));
+	}
+	
 
 
 }
