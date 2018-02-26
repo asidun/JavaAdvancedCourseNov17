@@ -20,6 +20,12 @@ public class Chamomile extends GeneralFlower {
 	public int getPetals(){
 		return petals;
 	}
+
+	@Override
+	public Flower<Integer> createFlower() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 
 

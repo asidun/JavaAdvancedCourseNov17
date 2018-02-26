@@ -1,11 +1,17 @@
 package com.flowergarden.run;
 
+import java.util.List;
 import java.util.Scanner;
 
 import com.flowergarden.bouquet.MarriedBouquet;
+import com.flowergarden.composite.PriceComposite;
 import com.flowergarden.store.StoreRefregerator;
+import com.flowergarden.strategy.DiscountStrategy;
+import com.flowergarden.strategy.SeasonDiscount;
 
 public class Run {
+	
+	private DiscountStrategy discount;
 
 	public static void main(String[] args) {
 
@@ -25,8 +31,28 @@ public class Run {
 			bouquet.addFlower(StoreRefregerator.getInstance().getStore().get("chamomile").removeLast());
 		}
 
-		System.out.println(bouquet.getPrice());
+		System.out.println("Price: " + bouquet.getPrice());
+		Run run = new Run();
+		run.setDiscount(new SeasonDiscount());
+		System.out.println("Price with discount: "  + run.getDiscount().applyDiscount(bouquet.getPrice()));
 
+	}
+	
+	public float getSum(List<PriceComposite> list){
+		float total = 0;
+		for (PriceComposite elenemt : list) {
+			total += elenemt.getPrice();
+		}
+		return discount.applyDiscount(total);
+		
+	}
+
+	public DiscountStrategy getDiscount() {
+		return discount;
+	}
+
+	public void setDiscount(DiscountStrategy discount) {
+		this.discount = discount;
 	}
 
 }
